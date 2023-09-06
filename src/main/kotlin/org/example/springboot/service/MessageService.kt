@@ -1,6 +1,6 @@
 package org.example.springboot.service
 
-import org.example.springboot.Message
+import org.example.springboot.dto.Message
 import org.example.springboot.repository.MessageRepository
 import org.springframework.stereotype.Service
 import kotlin.jvm.optionals.toList

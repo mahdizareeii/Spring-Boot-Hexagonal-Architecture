@@ -1,6 +1,6 @@
 package org.example.springboot.repository
 
-import org.example.springboot.Message
+import org.example.springboot.dto.Message
 import org.springframework.data.repository.CrudRepository
 
 // this will implement all fun find, save, delete and... automatically

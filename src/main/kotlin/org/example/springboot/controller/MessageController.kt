@@ -1,5 +1,6 @@
-package org.example.springboot
+package org.example.springboot.controller
 
+import org.example.springboot.dto.Message
 import org.example.springboot.service.MessageService
 import org.springframework.web.bind.annotation.*
 

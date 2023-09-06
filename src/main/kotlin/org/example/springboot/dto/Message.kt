@@ -1,4 +1,4 @@
-package org.example.springboot
+package org.example.springboot.dto
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
