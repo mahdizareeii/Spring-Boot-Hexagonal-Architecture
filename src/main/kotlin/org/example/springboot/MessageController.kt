@@ -6,14 +6,17 @@ import org.springframework.web.bind.annotation.*
 class MessageController(
     val service: MessageService
 ) {
+    @GetMapping("/")
+    fun index() = "hello to my project"
+
     @GetMapping("/hello")
     fun hello(@RequestParam("name") name: String) = "Hello $name"
 
-    @GetMapping("/")
+    @GetMapping("/getMessages")
     fun getMessages() = service.findMessage()
 
-    @PostMapping("/")
-    fun post(
+    @PostMapping("/postMessage")
+    fun postMessage(
         @RequestBody message: Message
     ) {
         service.save(message)
