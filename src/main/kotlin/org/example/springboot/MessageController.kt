@@ -1,5 +1,6 @@
 package org.example.springboot
 
+import org.example.springboot.service.MessageService
 import org.springframework.web.bind.annotation.*
 
 @RestController
