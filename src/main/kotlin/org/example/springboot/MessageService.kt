@@ -1,6 +1,7 @@
 package org.example.springboot
 
 import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.jdbc.core.query
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -16,9 +17,16 @@ class MessageService(
         )
     }
 
+    fun findMessageById(id: String): List<Message> =
+        db.query("select * from messages where id = ?", id) { response, _ ->
+            Message(
+                id = response.getString("id"),
+                text = response.getString("text")
+            )
+        }
+
     fun save(message: Message) {
         val id = message.id ?: UUID.randomUUID().toString()
         db.update("insert into messages values ( ?, ? )", id, message.text)
     }
-
 }

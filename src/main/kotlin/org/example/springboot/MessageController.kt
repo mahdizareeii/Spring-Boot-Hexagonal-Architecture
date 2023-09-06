@@ -12,6 +12,11 @@ class MessageController(
     @GetMapping("/hello")
     fun hello(@RequestParam("name") name: String) = "Hello $name"
 
+    @GetMapping("/getMessageById/{id}")
+    fun getMessageById(
+        @PathVariable id: String
+    ) = service.findMessageById(id)
+
     @GetMapping("/getMessages")
     fun getMessages() = service.findMessage()
 
