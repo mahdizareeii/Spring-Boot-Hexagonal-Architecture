@@ -17,4 +17,10 @@ fun main(args: Array<String>) {
 class MessageController {
     @GetMapping("/")
     fun index(@RequestParam("name") name:String) = "Hello $name"
+
+    @GetMapping("/test")
+    fun test() = listOf(
+        Message("1","test"),
+        Message("2","test2"),
+    )
 }
