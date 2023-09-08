@@ -28,7 +28,7 @@ There are different types of adapters, including:
 
 **Output or Secondary Adapters or Driving Adapters:** These handle communication with external resources like databases, third-party services, or external APIs.
 
-## **Frameworks and Drivers (Outermost Layer):**
+## **External Systems or Frameworks and Drivers (Outermost Layer):**
 
 This layer contains the external systems and frameworks that the application uses.
 It includes elements like databases, web frameworks, UI libraries, and other external tools.
