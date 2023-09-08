@@ -1,4 +1,4 @@
-package org.example.springboot.infrastructure.adapters.output.messaging.event.listener
+package org.example.springboot.infrastructure.adapters.input.listener
 
 import org.example.springboot.infrastructure.adapters.output.messaging.event.MessageEvent
 import org.springframework.context.event.EventListener
