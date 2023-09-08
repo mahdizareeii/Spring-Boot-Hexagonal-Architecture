@@ -1,6 +1,15 @@
 package org.example.springboot
 
+import org.example.springboot.core.port.`in`.DeleteMessageByIdUseCase
+import org.example.springboot.core.port.`in`.GetMessageByIdUseCase
+import org.example.springboot.core.port.`in`.GetMessagesUseCase
+import org.example.springboot.core.port.`in`.SaveMessageUseCase
+import org.example.springboot.core.port.out.DeleteMessageOutputPort
+import org.example.springboot.core.port.out.GetMessageOutputPort
+import org.example.springboot.core.port.out.GetMessagesOutputPort
+import org.example.springboot.core.port.out.SaveMessageOutputPort
 import org.example.springboot.infrastructure.adapters.output.persistence.entity.MessageDto
+import org.example.springboot.infrastructure.adapters.output.persistence.mapper.MessageMapper
 import org.example.springboot.infrastructure.adapters.output.persistence.repository.MessageRepository
 import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
@@ -13,7 +22,31 @@ class ProjectConfiguration {
     fun dataBaseDefaultDataInitializer(
         repository: MessageRepository
     ) = ApplicationRunner {
-        repository.save(MessageDto(null,"test text"))
+        repository.save(MessageDto(null, "test text"))
     }
+
+    @Bean
+    fun deleteMessageByIdUseCaseProvider(
+        repository: MessageRepository,
+        deleteMessageOutputPort: DeleteMessageOutputPort
+    ) = DeleteMessageByIdUseCase(repository, deleteMessageOutputPort)
+
+    @Bean
+    fun getMessageByIdUseCaseProvider(
+        repository: MessageRepository,
+        getMessageOutputPort: GetMessageOutputPort
+    ) = GetMessageByIdUseCase(repository, getMessageOutputPort, MessageMapper)
+
+    @Bean
+    fun getMessagesUseCaseProvider(
+        repository: MessageRepository,
+        getMessagesOutPort: GetMessagesOutputPort,
+    ) = GetMessagesUseCase(repository, getMessagesOutPort, MessageMapper)
+
+    @Bean
+    fun saveMessageUseCaseProvider(
+        repository: MessageRepository,
+        saveMessageOutputPort: SaveMessageOutputPort,
+    ) = SaveMessageUseCase(repository, saveMessageOutputPort, MessageMapper)
 
 }
