@@ -1,8 +1,8 @@
 package org.example.springboot.core.port.`in`
 
-import org.example.springboot.infrastructure.adapters.output.persistence.mapper.MessageMapper
-import org.example.springboot.core.port.out.GetMessagesOutputPort
 import org.example.springboot.core.domain.model.Message
+import org.example.springboot.core.port.out.GetMessagesOutputPort
+import org.example.springboot.infrastructure.adapters.output.persistence.mapper.MessageMapper
 import org.example.springboot.infrastructure.adapters.output.persistence.repository.MessageRepository
 
 class GetMessagesUseCase(
@@ -11,8 +11,8 @@ class GetMessagesUseCase(
     private val mapper: MessageMapper
 ) {
     fun getMessages(): List<Message> {
-        val messages = repository.findAll().toList()
+        val messages = repository.findAll().toList().map { mapper.toDomain(it) }
         getMessagesOutPort.displayMessages(messages)
-        return messages.map { mapper.toDomain(it) }
+        return messages
     }
 }

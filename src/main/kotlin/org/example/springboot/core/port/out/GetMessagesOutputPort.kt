@@ -1,7 +1,7 @@
 package org.example.springboot.core.port.out
 
-import org.example.springboot.infrastructure.adapters.output.persistence.entity.MessageDto
+import org.example.springboot.core.domain.model.Message
 
 interface GetMessagesOutputPort {
-    fun displayMessages(messages: List<MessageDto>)
+    fun displayMessages(messages: List<Message>)
 }
