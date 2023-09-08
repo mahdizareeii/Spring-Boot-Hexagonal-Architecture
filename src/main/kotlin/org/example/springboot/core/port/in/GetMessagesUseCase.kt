@@ -1,8 +1,8 @@
 package org.example.springboot.core.port.`in`
 
-import org.example.springboot.core.mapper.MessageMapper
+import org.example.springboot.infrastructure.adapters.output.persistence.mapper.MessageMapper
 import org.example.springboot.core.port.out.GetMessagesOutputPort
-import org.example.springboot.domain.model.Message
+import org.example.springboot.core.domain.model.Message
 import org.example.springboot.infrastructure.adapters.output.persistence.repository.MessageRepository
 
 class GetMessagesUseCase(

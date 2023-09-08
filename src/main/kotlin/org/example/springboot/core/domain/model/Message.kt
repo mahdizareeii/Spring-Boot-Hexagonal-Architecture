@@ -1,4 +1,4 @@
-package org.example.springboot.domain.model
+package org.example.springboot.core.domain.model
 
 data class Message(
     val id: String?,

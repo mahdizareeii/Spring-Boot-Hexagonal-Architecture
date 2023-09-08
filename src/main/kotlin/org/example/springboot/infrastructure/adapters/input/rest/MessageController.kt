@@ -1,7 +1,7 @@
 package org.example.springboot.infrastructure.adapters.input.rest
 
-import org.example.springboot.infrastructure.adapters.output.persistence.entity.MessageDto
-import org.example.springboot.domain.service.MessageService
+import org.example.springboot.core.domain.model.Message
+import org.example.springboot.core.domain.service.MessageService
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -17,16 +17,16 @@ class MessageController(
     @GetMapping("/getMessageById/{id}")
     fun getMessageById(
         @PathVariable id: String
-    ) = service.findMessageById(id)
+    ) = service.getMessageById(id)
 
     @GetMapping("/getMessages")
-    fun getMessages() = service.findMessage()
+    fun getMessages() = service.getMessages()
 
     @PostMapping("/postMessage")
     fun postMessage(
-        @RequestBody messageDto: MessageDto
+        @RequestBody message: Message
     ) {
-        service.save(messageDto)
+        service.saveMessage(message)
     }
 
     @DeleteMapping("/deleteMessageById/{id}")
