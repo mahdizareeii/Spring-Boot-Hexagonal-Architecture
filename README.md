@@ -1,5 +1,5 @@
 # Spring-Boot-Hexagonal-Architecture
-A simple Kotlin Spring Boot project to demonstrate how hexagonal architecture implements
+A simple Kotlin Spring Boot project that demonstrates how hexagonal architecture can be implemented
 ![hexagonal architecture](https://user-images.githubusercontent.com/34120686/266601786-0e55689f-47b6-407c-a5de-55feaaf1933c.jpg)
 
 Hexagonal architecture is a software design approach that organizes an application into concentric layers.
