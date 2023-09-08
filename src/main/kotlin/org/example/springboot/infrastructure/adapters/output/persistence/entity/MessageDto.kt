@@ -1,10 +1,10 @@
-package org.example.springboot.dto
+package org.example.springboot.infrastructure.adapters.output.persistence.entity
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
 @Table("MESSAGES")
-data class Message(
+data class MessageDto(
     @Id
     val id: String?,
     val text: String

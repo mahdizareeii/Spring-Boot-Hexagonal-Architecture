@@ -1,7 +1,7 @@
-package org.example.springboot.controller
+package org.example.springboot.infrastructure.adapters.input.rest
 
-import org.example.springboot.dto.Message
-import org.example.springboot.service.MessageService
+import org.example.springboot.infrastructure.adapters.output.persistence.entity.MessageDto
+import org.example.springboot.domain.service.MessageService
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -24,8 +24,13 @@ class MessageController(
 
     @PostMapping("/postMessage")
     fun postMessage(
-        @RequestBody message: Message
+        @RequestBody messageDto: MessageDto
     ) {
-        service.save(message)
+        service.save(messageDto)
     }
+
+    @DeleteMapping("/deleteMessageById/{id}")
+    fun deleteMessageById(
+        @PathVariable id: String
+    ) = service.deleteMessageById(id)
 }

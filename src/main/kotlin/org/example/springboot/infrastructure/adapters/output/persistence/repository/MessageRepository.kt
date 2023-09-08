@@ -1,6 +1,6 @@
-package org.example.springboot.repository
+package org.example.springboot.infrastructure.adapters.output.persistence.repository
 
-import org.example.springboot.dto.Message
+import org.example.springboot.infrastructure.adapters.output.persistence.entity.MessageDto
 import org.springframework.data.repository.CrudRepository
 
 //CrudRepository mainly provides CRUD functions.
@@ -8,4 +8,4 @@ import org.springframework.data.repository.CrudRepository
 //JpaRepository provides some JPA-related methods such as flushing the persistence context and deleting records in a batch.
 
 // this will implement all fun find, save, delete and... automatically
-interface MessageRepository : CrudRepository<Message, String>
+interface MessageRepository : CrudRepository<MessageDto, String>
