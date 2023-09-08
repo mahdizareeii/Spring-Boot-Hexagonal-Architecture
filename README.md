@@ -23,8 +23,10 @@ Ports include input ports (for receiving data or commands) and output ports (for
 Adapters are responsible for implementing the ports defined in the core.
 They bridge the gap between the core and external systems, translating requests and responses as needed.
 There are different types of adapters, including:
-Input or Primary Adapters or Driven Adapters: These are responsible for receiving input from external sources (e.g., user interfaces, API endpoints) and converting it into a format that the core can understand.
-Output or Secondary Adapters or Driving Adapters: These handle communication with external resources like databases, third-party services, or external APIs.
+
+**Input or Primary Adapters or Driven Adapters:** These are responsible for receiving input from external sources (e.g., user interfaces, API endpoints) and converting it into a format that the core can understand.
+
+**Output or Secondary Adapters or Driving Adapters:** These handle communication with external resources like databases, third-party services, or external APIs.
 
 ## **Frameworks and Drivers (Outermost Layer):**
 
