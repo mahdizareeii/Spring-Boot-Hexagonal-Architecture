@@ -16,7 +16,7 @@ This layer is independent of external systems and should be kept free from any f
 
 Ports define the interfaces or contracts through which the core interacts with the external world.
 They are essentially the entry and exit points for data and operations in the application.
-Ports include input ports (for receiving data or commands) and output ports (for sending data or events).
+Ports include input ports (for receiving data or commands) and output ports (for sending data, events, or notifications to external systems without knowing their specific implementations).
 
 ## **Adapters (Outer Layers):**
 
