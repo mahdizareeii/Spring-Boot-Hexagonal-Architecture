@@ -33,3 +33,60 @@ There are different types of adapters, including:
 This layer contains the external systems and frameworks that the application uses.
 It includes elements like databases, web frameworks, UI libraries, and other external tools.
 The adapters in this layer facilitate communication between the application and these external systems.
+
+
+## **How to Dockerize spring boot application?**
+
+before start :
+
+check your build gradle configuration if you are set mainClass.set remove it
+
+step 1 :
+
+get jar file of your spring boot project
+
+cd to your project directory by terminal and run this command:
+./gradlew clean build
+./gradlew build 
+
+after building the project check this dir:
+build/libs
+your jar file generated
+
+step 2 :
+open the terminal as administrator and cd to the project directory
+
+Create an empty file named Dockerfile.
+
+mac/linux: touch Dockerfile
+windows: type nul > Dockerfile
+
+step 3:
+now edit the file DockerFile with an editor like this
+_______________________________________________________________________
+
+# Use a specific version of the Eclipse Temurin JDK
+FROM eclipse-temurin:17-jdk-alpine
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the JAR file into the container
+COPY ./build/libs/SpringBootExample-1.0-SNAPSHOT.jar app.jar
+
+# Define the command to run your application
+CMD ["java", "-jar", "app.jar"]
+_______________________________________________________________________
+
+now build your docker image file by this command:
+
+docker build -t yourProjectName:yourCustomVersion .
+
+example : 
+docker build -t myapp .
+
+and finally, run your app in a container by this command:
+docker run -p 8080:8080 yourProjectName
+
+example :
+docker run -p 8080:8080 myapp
